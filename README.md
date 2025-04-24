@@ -26,6 +26,8 @@ The application follows a multi-stage pipeline architecture:
     - Buffers messages containing the final recognition results.
     - Polled by the client to retrieve the outcome associated with its original request ID.
 
+![Architecture Diagram](architecture.png)
+
 ## Technologies Used
 
 - **Cloud Provider:** Amazon Web Services (AWS)
