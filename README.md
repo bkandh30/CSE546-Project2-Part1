@@ -49,7 +49,7 @@ The application follows a multi-stage pipeline architecture:
 1.  **ECR Repository:**
     - Create an ECR repository.
     - Use the provided `Dockerfile` template to build a container image including all necessary dependencies (Python, `boto3`, `facenet_pytorch`, `Pillow`, `opencv-python`, `requests`, `awslambdaric`). Ensure PyTorch is installed for CPU.
-    - Push the built image to your ECR repository. _Note: Consider techniques to minimize image size as outlined in the project description._
+    - Push the built image to your ECR repository.
 2.  **SQS Queues:**
     - Create an SQS Standard Queue named `<ASU ID>-req-queue`.
     - Create an SQS Standard Queue named `<ASU ID>-resp-queue`.
