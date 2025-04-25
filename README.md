@@ -55,16 +55,12 @@ The application follows a multi-stage pipeline architecture:
     - Create an SQS Standard Queue named `<ASU ID>-resp-queue`.
 3.  **Lambda Functions:**
     - **Face Detection (`face-detection`):**
-      - Create a Lambda function using the ECR image.
+      - Create a Lambda function using the ECR image (override CMD/entrypoint).
       - Configure a Function URL for invocation via HTTPS POST requests.
       - Assign an execution role with permissions: `AWSLambdaSQSQueueExecutionRole`, `AWSLambdaVPCAccessExecutionRole`.
       - Set environment variables or configure the handler as needed.
     - **Face Recognition (`face-recognition`):**
-      - Create a Lambda function using the _same_ ECR image (override CMD/entrypoint if necessary).
+      - Create a Lambda function using the _same_ ECR image (override CMD/entrypoint).
       - Configure an SQS trigger linked to the `<ASU ID>-req-queue`.
       - Assign an execution role with permissions: `AWSLambdaSQSQueueExecutionRole`, `AWSLambdaVPCAccessExecutionRole`.
       - Set environment variables or configure the handler as needed.
-4.  **IAM User for Grading:**
-    - Create an IAM user named `cse546-AutoGrader`.
-    - Attach the required policies: `IAMReadOnlyAccess`, `AmazonSQSFullAccess`, `AWSLambdaSQSQueueExecutionRole`, `AWSLambda_ReadOnlyAccess`.
-    - Generate access keys for this user.
